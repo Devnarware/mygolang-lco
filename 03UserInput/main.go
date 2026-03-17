@@ -18,5 +18,6 @@ func main()  {
 
 	input , _ := read.ReadString('\n') ;
 
-	fmt.Println("entered value is: " + input)
+	fmt.Println("entered value is: " + input) ;
+	// fmt.Println(err) ;
 }
