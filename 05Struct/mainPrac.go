@@ -16,20 +16,20 @@ type car struct  {
 type fuel struct{
 	fuelType string ;
 }
-func main()  {
+// func main()  {
 
-	myCar := car{} ;
+// 	myCar := car{} ;
 
-	myCar.brand = "tesla"
-	myCar.model = "modelX" 
-	myCar.price = 1000000 ;
-	myCar.fuel.fuelType = "battery" ;
+// 	myCar.brand = "tesla"
+// 	myCar.model = "modelX" 
+// 	myCar.price = 1000000 ;
+// 	myCar.fuel.fuelType = "battery" ;
 
 	
 
-	printDetails(myCar)
+// 	printDetails(myCar)
 
-}
+// }
 
 func printDetails(car car)  {
 	fmt.Println("")
@@ -38,4 +38,3 @@ func printDetails(car car)  {
 	fmt.Println(car.price)
 	fmt.Println(car.fuel)
 }
-
