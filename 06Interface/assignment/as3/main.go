@@ -22,7 +22,10 @@ type expense interface {
 
 type formatter interface {
 	format() string
+
+	
 }
+
 
 type email struct {
 	isSubscribed bool

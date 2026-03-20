@@ -59,6 +59,7 @@ Pass
 `, test.body, test.isSubscribed, test.expectedCost, test.expectedFormat, cost, format)
 		}
 	}
+	
 
 	fmt.Println("---------------------------------")
 	if skipped > 0 {
