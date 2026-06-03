@@ -4,15 +4,18 @@ import "fmt"
 
 func main() {
 
-	var a, b int
-	fmt.Print("Enter the value of a and b: ")
-	fmt.Scan(&a, &b)
+	m := make(map[string]int)
 
-	ans := add(a, b)
-	fmt.Println(ans)
+	m["Dev"] = 20
+	m["Ved"] = 18
+	m["Khed"] = 10
+
+	for key, val := range m {
+		if val >= 18 {
+			fmt.Println(key)
+		}
+	}
 
 }
 
-func add(a int, b int) int {
-	return a + b
-}
+
