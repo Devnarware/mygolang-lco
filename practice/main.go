@@ -4,9 +4,13 @@ import "fmt"
 
 func main() {
 
-	ans := add(1, 2)
+	var a, b int
+	fmt.Print("Enter the value of a and b: ")
+	fmt.Scan(&a, &b)
+
+	ans := add(a, b)
 	fmt.Println(ans)
-	fmt.Println("hello")
+
 }
 
 func add(a int, b int) int {
