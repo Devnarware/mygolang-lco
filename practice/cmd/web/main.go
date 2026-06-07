@@ -7,6 +7,8 @@ import (
 
 func main(){
 	mux := http.NewServeMux()
+
+	mux.HandleFunc("GET /{$}", home)
 	mux.HandleFunc("GET /snippet/view/{id}", snippetView)
 
 	log.Print("Staring the server at the port :5500")

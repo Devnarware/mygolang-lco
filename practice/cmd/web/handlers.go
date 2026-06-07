@@ -2,18 +2,36 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"strconv"
+	"text/template"
 )
 
-func snippetView(w http.ResponseWriter, r *http.Request) {
+func home(w http.ResponseWriter, r *http.Request) {
 
-	val, err := strconv.Atoi(r.PathValue("id"))
+	ts, err := template.ParseFiles("../../ui/html/pages/home.html")
 
 	if err != nil {
-		http.Error(w, "Invalid id", http.StatusBadRequest)
+		log.Fatal(err)
 	}
 
-	msg := fmt.Sprintln("Viewing Snippet with id:", val)
+	err = ts.Execute(w, nil)
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}	
+
+
+
+func snippetView(w http.ResponseWriter, r *http.Request){
+	id,err := strconv.Atoi(r.PathValue("id"))
+
+	if err != nil {
+		http.Error(w, "Invalid ID", http.StatusBadRequest)
+	}
+
+	msg := fmt.Sprintln("Viewing Snippet with id: ", id)
 	w.Write([]byte(msg))
 }
