@@ -1,19 +1,28 @@
 package main
 
-import "fmt"
+import (
+	"log"
+	"net/http"
+)
 
 func main() {
 
-	arr := []int {1,2,3,4,5,6}
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", home)
 
 
-	clearSlice(&arr)
-	fmt.Println(arr)
+	log.Print("server is starting")
+
+	err := http.ListenAndServe(":5500", mux)
+
+	if err != nil {
+		log.Fatal(err)
+	}
 
 }
 
-func clearSlice(arr *[]int){
-	*arr = []int {}
+func home(w http.ResponseWriter, r *http.Request){
+	w.Write([]byte("hello"))
 }
 
 
