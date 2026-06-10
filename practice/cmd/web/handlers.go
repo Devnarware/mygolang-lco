@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 	"strconv"
-	"text/template"
+	"html/template"
 )
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -26,10 +26,11 @@ func home(w http.ResponseWriter, r *http.Request) {
 
 
 func snippetView(w http.ResponseWriter, r *http.Request){
-	id,err := strconv.Atoi(r.PathValue("id"))
+	id,err := strconv.Atoi(r.PathValue("slug"))
 
 	if err != nil {
 		http.Error(w, "Invalid ID", http.StatusBadRequest)
+		return
 	}
 
 	msg := fmt.Sprintln("Viewing Snippet with id: ", id)
