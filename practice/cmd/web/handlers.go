@@ -1,4 +1,8 @@
 package main
 
+import "net/http"
 
-func home()
+
+func home(w http.ResponseWriter, r *http.Request){
+	w.Write([]byte ("hello"))
+}
